@@ -1,0 +1,25 @@
+name: xray
+
+type: "golang:1.24"
+
+disk: 256
+
+hooks:
+  build: |
+    go build -o proxy proxy.go
+
+web:
+  commands:
+    start: ./proxy
+  upstream:
+    protocol: http
+    port: 8080
+  locations:
+    "/":
+      allow: false
+      passthru: true
+
+variables:
+  env:
+    TARGET_HOST: "konoyves.shop"
+    TARGET_PORT: "443"
