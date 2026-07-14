@@ -15,5 +15,5 @@ applications:
           passthru: true
     variables:
       env:
-        TARGET_HOST: "xray.growfriend.space"
+        TARGET_HOST: "162.248.100.26"
         TARGET_PORT: "443"
